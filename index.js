@@ -1,7 +1,13 @@
 //  cSpell:disable
 const izracunajAranzmanBtn = document.getElementById('izracunaj_aranzman');
+const slikeOsoblja = document.getElementsByClassName('person_img');
 
 /*********  Event Listeneri  **********/
+Array.from(slikeOsoblja).forEach(function (element) {
+	element.addEventListener('mouseover', skalirajSliku);
+	element.addEventListener('mouseleave', deskalirajSliku);
+});
+
 izracunajAranzmanBtn.addEventListener('click', izracunajAranzman);
 
 /*********  Kalkulator aranžmana  **********/
@@ -49,5 +55,25 @@ function nadjiCenuDestinacije(destinacija) {
 			return { osnovnaCena: 16000, danPoOsobi: 6000, extra: 500 };
 		default:
 			return { osnovnaCena: 15000, danPoOsobi: 5000, extra: 500 };
+	}
+}
+
+function skalirajSliku(event) {
+	const target = event.target;
+	if (target) {
+		const currHeight = target.clientHeight;
+		const currWidth = target.clientWidth;
+		target.style.height = currHeight + 5 + 'px';
+		target.style.width = currWidth + 5 + 'px';
+	}
+}
+
+function deskalirajSliku(event) {
+	const target = event.target;
+	if (target) {
+		const currHeight = target.clientHeight;
+		const currWidth = target.clientWidth;
+		target.style.height = currHeight - 5 + 'px';
+		target.style.width = currWidth - 5 + 'px';
 	}
 }

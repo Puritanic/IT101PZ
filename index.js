@@ -1,12 +1,18 @@
 //  cSpell:disable
 const izracunajAranzmanBtn = document.getElementById('izracunaj_aranzman');
 const slikeOsoblja = document.getElementsByClassName('person_img');
+const slikeTura = document.getElementsByClassName('grid_img');
 const posaljiPoruku = document.getElementById('posalji_poruku');
 
 /*********  Event Listeneri  **********/
 Array.from(slikeOsoblja).forEach(function (element) {
 	element.addEventListener('mouseover', skalirajSliku);
 	element.addEventListener('mouseleave', deskalirajSliku);
+});
+
+Array.from(slikeTura).forEach(function (element) {
+	element.addEventListener('mouseover', prikaziInfoTure);
+	element.addEventListener('mouseleave', sakrijInfoTure);
 });
 
 izracunajAranzmanBtn.addEventListener('click', izracunajAranzman);
@@ -180,4 +186,23 @@ function validirajKontaktTelefon(telefon) {
  */
 function hasNumber(string) {
 	return /\d/.test(string);
+}
+
+function prikaziInfoTure(event) {
+	const target = event.target;
+	if (target) {
+		const span = target.getElementsByTagName('span')[0];
+		if (span) {
+			span.style.opacity = 1;
+		}
+	}
+}
+function sakrijInfoTure(event) {
+	const target = event.target;
+	if (target) {
+		const span = target.getElementsByTagName('span')[0];
+		if (span) {
+			span.style.opacity = 0;
+		}
+	}
 }

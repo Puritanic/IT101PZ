@@ -6,6 +6,14 @@
 	margin-bottom: 3rem;
 	text-align: center;
 }
+.subtitle {
+	text-transform: uppercase;
+	font: bold 24px 'Open Sans', sans-serif;
+	font: bold 2.4rem 'Open Sans', sans-serif;
+	margin-bottom: 20px;
+	margin-bottom: 2rem;
+	text-align: center;
+}
 /**
    * Make all elements from the DOM inherit from the parent box-sizing
    * Since `*` has a specificity of 0, it does not override the `html` value
@@ -618,15 +626,15 @@ section:not(.hero):nth-child(even) {
 		margin: 1.5rem 0;
 	}
 }
-.kontakt form {
+form {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
 	width: 50%;
 }
-.kontakt form input,
-.kontakt form textarea {
+form input,
+form textarea {
 	padding: 15px;
 	padding: 1.5rem;
 	margin-bottom: 0.5rem;
@@ -637,10 +645,10 @@ section:not(.hero):nth-child(even) {
 	border-radius: 3px;
 	border: #ccc 1px solid;
 }
-.kontakt form textarea {
+form textarea {
 	width: 100%;
 }
-.kontakt form input[type='button'] {
+form input[type='button'] {
 	color: #fff;
 	margin-top: 1rem;
 }
@@ -675,8 +683,12 @@ section:not(.hero):nth-child(even) {
 	font-size: 1.4rem;
 	color: green;
 }
+.grid_img span {
+	opacity: 0;
+	transition: opacity 0.5 ease-in;
+}
 @media only screen and (max-width: 1100px) {
-	.kontakt form input {
+	form input {
 		flex-basis: 100%;
 		margin: 0 0 2rem 0;
 	}

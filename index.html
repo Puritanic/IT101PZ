@@ -1,3 +1,4 @@
+<!-- /* cSpell:disable */ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,37 +98,52 @@
 			Kalkulator aranžmana
 		-->
 		<section class="packages" id="kalkulator">
-			<h3 class="title">Tour Packages</h3>
-			<p>We offer a variety of mountaineering packages. Whether you've climbed Everest or
-				don't even know what a mountain is, we've got the perfect vacation for you.
+			<h3 class="title">Kalkulator aranžmana</h3>
+			<p>
+				U ponudi imamo najraznovrsnije pakete aranžmana, za razne destinacije. Ovde možete izračunati koliko bi
+				neki od takvih aranžmana koštao u zavisnosti od ponudjenih kriterijuma.
+			</p>
+			<p class="h_txt--small">
+				Kalkulator aranžmana je informativne prirode, i ne garantuje tačnu, već približnu cenu aranžmana. Za
+				preciznu cenu <a style="text-decoration: underline;" href="#kontakt">stupite u kontakt</a> sa nama.
 			</p>
 			<hr>
-			<ul class="grid">
-				<li>
-					<i class="fa fa-compass fa-4x"></i>
-					<h4>Guided Trips</h4>
-					<p>Looking for the complete experience? Take a tour with one of our experts. They'll
-						show you secrets that you're likely to miss otherwise.</p>
-				</li>
-				<li>
-					<i class="fa fa-camera-retro fa-4x"></i>
-					<h4>Photo Trips</h4>
-					<p>Want to experience nature's beauty without all of that annoying exercise? Take
-						a photo tour on one of our mountain buses.</p>
-				</li>
-				<li>
-					<i class="fa fa-bicycle fa-4x"></i>
-					<h4>Biking Trips</h4>
-					<p>If bicycles are more your speed, consider taking a tour through one of our
-						mountain bike paths. We'll provide the bikes, and lunch too!</p>
-				</li>
-				<li>
-					<i class="fa fa-flag-checkered fa-4x"></i>
-					<h4>Racing Trips</h4>
-					<p>Got a competitive spirit? Sign up for one of our mountain marathons! Try to
-						reach the summit before anyone else.</p>
-				</li>
-			</ul>
+			<div class="h__flex h__w100">
+				<form action="" class="h__w50 h__flex h__flex--column h__flex--center">
+					<p class="h__flex h__flex--space_between">
+						<label class="h__w50" for="destinacija">Destinacija:</label>
+						<select class="h__w50" name="destinacija" id="destinacija">
+							<option value="francuska_pariz">Francuska, Pariz</option>
+							<option value="francuska_nica">Francuska, Nica</option>
+							<option value="italija_rim">Italija, Rim</option>
+							<option value="italija_tropea">Italija, Tropea</option>
+							<option value="grcka_asos">Grčka, Asos</option>
+							<option value="turska_istanbul">Turska, Istanbul</option>
+						</select>
+					</p>
+
+					<p class="h__flex h__flex--space_between">
+						<label class="h__w50" for="broj_osoba">Broj Osoba:</label>
+						<input class="h__w50" type="number" name="broj_osoba" id="broj_osoba" max="6" min="1">
+					</p>
+
+					<p class="h__flex h__flex--space_between">
+						<label class="h__w50" for="broj_nocenja">Broj noćenja:</label>
+						<input class="h__w50" type="number" name="broj_nocenja" id="broj_nocenja" max="30" min="1">
+					</p>
+
+					<p class="h__flex h__flex--space_around">
+						<label for="sa_doruckom">Doručak uključen u aranžman:</label>
+						<input type="checkbox" name="sa_doruckom" id="sa_doruckom" checked>
+					</p>
+
+					<a href="#kalkulator" type="button" id="izracunaj_aranzman" class="btn">Izračunaj</a>
+				</form>
+				<div class="h__w50 h__flex h__flex--column">
+					<p class="h__text--fz25">Ukupni trošak aranžmana: </p>
+					<p class="h__center-text h__text--fz25 h__text--bold" id="ukupno_aranzman"></p>
+				</div>
+			</div>
 		</section>
 		<!-- 
 			O nama

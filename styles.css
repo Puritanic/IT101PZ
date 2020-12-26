@@ -293,8 +293,37 @@ section p {
 .h__flex {
 	display: flex;
 }
+.h__flex--column {
+	flex-direction: column;
+}
+.h__flex--space_between {
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.h__flex--space_around {
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+.h__flex--center {
+	justify-content: center;
+	align-items: center;
+}
+.h__w50 {
+	width: 50%;
+}
+.h__w100 {
+	width: 100%;
+}
 .h__center-text {
 	text-align: center !important;
+}
+.h__text--fz25 {
+	font-size: 2.5rem;
+}
+.h__text--bold {
+	font-weight: bold;
 }
 .h__mb--big {
 	margin-bottom: 80px !important;
@@ -329,6 +358,9 @@ section p {
 .h__mt--small {
 	margin-top: 15px !important;
 	margin-top: 1.5rem !important;
+}
+.h_txt--small {
+	font-size: 1.3rem;
 }
 /* CSS Grid */
 .grid {

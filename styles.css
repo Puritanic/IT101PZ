@@ -319,11 +319,21 @@ section p {
 .h__center-text {
 	text-align: center !important;
 }
+.h_txt--small {
+	font-size: 1.3rem;
+}
+.h__txt--regular {
+	font-size: 1.6rem;
+}
 .h__text--fz25 {
 	font-size: 2.5rem;
 }
 .h__text--bold {
 	font-weight: bold;
+}
+.h__hidden {
+	display: none;
+	visibility: hidden;
 }
 .h__mb--big {
 	margin-bottom: 80px !important;
@@ -358,9 +368,6 @@ section p {
 .h__mt--small {
 	margin-top: 15px !important;
 	margin-top: 1.5rem !important;
-}
-.h_txt--small {
-	font-size: 1.3rem;
 }
 /* CSS Grid */
 .grid {
@@ -597,7 +604,7 @@ header li {
 section:not(.hero):nth-child(even) {
 	background-color: #f5f5f5;
 }
-.testimonials .quote {
+.quote {
 	font-size: 22px;
 	font-size: 2.2rem;
 	font-weight: 300;
@@ -606,47 +613,70 @@ section:not(.hero):nth-child(even) {
 	margin: 4rem 0 2.5rem;
 }
 @media only screen and (max-width: 800px) {
-	.testimonials .quote {
+	.quote {
 		font-size: 1.8rem;
 		margin: 1.5rem 0;
 	}
 }
-@media only screen and (max-width: 800px) {
-	.testimonials .author {
-		font-size: 1.4rem;
-	}
-}
-.contact form {
-	display: -webkit-box;
-	display: -ms-flexbox;
+.kontakt form {
 	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	width: 50%;
 }
-.contact form input {
+.kontakt form input,
+.kontakt form textarea {
 	padding: 15px;
 	padding: 1.5rem;
-	margin-right: 30px;
-	margin-right: 3rem;
+	margin-bottom: 0.5rem;
 	font-size: 18px;
 	font-size: 1.8rem;
 	color: #555;
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
 	flex: 1;
 	border-radius: 3px;
-	border: none;
+	border: #ccc 1px solid;
+}
+.kontakt form textarea {
+	width: 100%;
+}
+.kontakt form input[type='button'] {
+	color: #fff;
+	margin-top: 1rem;
+}
+.form__group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 0.5rem;
+}
+.form__group label {
+	margin-right: 5px;
+	width: 30%;
+	font-size: 18px;
+}
+.form__group input,
+.form__group select,
+.form__group a {
+	width: 70%;
+	height: 100%;
+}
+.form__group select {
+	font-size: 1.8rem;
+}
+.greska {
+	font-weight: bold;
+	font-size: 1.4rem;
+	color: crimson;
+}
+.uspeh {
+	font-weight: bold;
+	font-size: 1.4rem;
+	color: green;
 }
 @media only screen and (max-width: 1100px) {
-	.contact form input {
-		-ms-flex-preferred-size: 100%;
+	.kontakt form input {
 		flex-basis: 100%;
 		margin: 0 0 2rem 0;
 	}
@@ -655,10 +685,7 @@ footer {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
-	-ms-flex-pack: distribute;
 	justify-content: space-around;
 	background-color: #607d8b;
 	color: aliceblue;
@@ -667,9 +694,6 @@ footer {
 }
 @media only screen and (max-width: 1100px) {
 	footer {
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: column;
 		flex-direction: column;
 	}
 }
@@ -692,7 +716,6 @@ footer p {
 	font-size: 14px;
 	font-size: 1.4rem;
 	opacity: 0.6;
-	-ms-flex-item-align: center;
 	align-self: center;
 }
 @media only screen and (max-width: 1100px) {
@@ -720,5 +743,5 @@ footer a:visited i {
 .person_img:hover {
 	position: relative;
 	transform: scale(1.05);
-	z-index: 1000;
+	z-index: 9;
 }

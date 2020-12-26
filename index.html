@@ -249,7 +249,7 @@
 				</div>
 
 				<button type="submit" class="btn h__mt--small" id="posalji_poruku">Pošalji</button>
-				<p class="h__hidden uspeh" id="broj_telefona_greska">Poruka je poslata</p>
+				<p class="h__hidden uspeh" id="poruka_poslata">Poruka je poslata</p>
 			</form>
 			<div id="map" style="width: 400px; height: 300px;"></div>
 			<hr>
@@ -286,25 +286,27 @@
 					</div>
 				</div>
 				<hr>
-				<form class="h__flex--column">
+				<form class="h__flex--column" id="karijera_forma">
 					<div class="form__group">
-						<label for="ime">Ime</label>
-						<input type="text" name="ime" id="ime" placeholder="Petar" required>
+						<label for="karijera_ime">Ime</label>
+						<input type="text" name="karijera_ime" id="karijera_ime" placeholder="Petar" required>
 					</div>
-					<p class="h__hidden greska" id="ime_greska">Ime je obavezno</p>
 
 					<div class="form__group">
-						<label for="prezime">Prezime</label>
-						<input type="text" name="prezime" id="prezime" placeholder="Petrović" required>
+						<label for="karijera_prezime">Prezime</label>
+						<input type="text" name="karijera_prezime" id="karijera_prezime" placeholder="Petrović"
+							required>
 					</div>
-					<p class="h__hidden greska" id="prezime_greska">Prezime je obavezno</p>
+
+					<p class="h__hidden greska" id="karijera_ime_prezime_greska">Ime i Prezime su obavezni</p>
 
 					<div class="form__group">
-						<label for="prezime">CV</label>
-						<input type="file" name="MAX_FILE_SIZE" value="4194304" required />
+						<label for="karijera_CV">CV</label>
+						<input type="file" name="MAX_FILE_SIZE" value="4194304" id="karijera_CV" required />
 					</div>
 					<p class="h__hidden greska" id="cv_greska">Prezime je obavezno</p>
-					<button type="submit" class="btn" id="pretplati_se">Prijavi se</button>
+					<button type="submit" class="btn" id="karijera_submit">Prijavi se</button>
+					<p class="h__hidden uspeh" id="prijava_poslata">Prijava je poslata</p>
 				</form>
 		</section>
 	</main>

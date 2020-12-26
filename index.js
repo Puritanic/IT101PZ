@@ -3,6 +3,7 @@ const izracunajAranzmanBtn = document.getElementById('izracunaj_aranzman');
 const slikeOsoblja = document.getElementsByClassName('person_img');
 const slikeTura = document.getElementsByClassName('grid_img');
 const posaljiPoruku = document.getElementById('posalji_poruku');
+const karijeraBtn = document.getElementById('karijera_submit');
 
 /*********  Event Listeneri  **********/
 Array.from(slikeOsoblja).forEach(function (element) {
@@ -17,6 +18,7 @@ Array.from(slikeTura).forEach(function (element) {
 
 izracunajAranzmanBtn.addEventListener('click', izracunajAranzman);
 posaljiPoruku.addEventListener('click', validirajKontaktPoruku);
+karijeraBtn.addEventListener('click', validirajPodatke);
 
 /*********  Kalkulator aranžmana  **********/
 /**
@@ -86,12 +88,13 @@ function deskalirajSliku(event) {
 	}
 }
 
-function validirajKontaktPoruku() {
+function validirajKontaktPoruku(event) {
 	const kontaktForma = document.getElementById('kontakt_forma');
-	const naslovPoruke = document.getElementById('naslov').value;
-	const imePrezime = document.getElementById('ime_prezime').value;
-	const poruka = document.getElementById('poruka').value;
-	const kontaktTelefon = document.getElementById('broj_telefona').value;
+	const naslovPoruke = document.getElementById('naslov').value.trim();
+	const imePrezime = document.getElementById('ime_prezime').value.trim();
+	const poruka = document.getElementById('poruka').value.trim();
+	const kontaktTelefon = document.getElementById('broj_telefona').value.trim();
+	const uspehPoruka = document.getElementById('poruka_poslata');
 
 	const naslovGreska = document.getElementById('naslov_greska');
 	const imePrezimeGreska = document.getElementById('ime_prezime_greska');
@@ -131,9 +134,13 @@ function validirajKontaktPoruku() {
 	}
 
 	if (naslovJeValidan && imePrezimeJeValidno && porukaJeValidna && kontaktJeTelefonValidan) {
-		const uspehPoruka = document.getElementsByClassName('uspeh')[0];
 		uspehPoruka.classList.remove('h__hidden');
 		kontaktForma.reset();
+	} else {
+		event.preventDefault();
+		if (!uspehPoruka.classList.contains('h__hidden')) {
+			uspehPoruka.classList.add('h__hidden');
+		}
 	}
 }
 /**
@@ -203,6 +210,38 @@ function sakrijInfoTure(event) {
 		const span = target.getElementsByTagName('span')[0];
 		if (span) {
 			span.style.opacity = 0;
+		}
+	}
+}
+function validirajPodatke(event) {
+	const forma = document.getElementById('karijera_forma');
+	const ime = document.getElementById('karijera_ime').value.trim();
+	const prezime = document.getElementById('karijera_prezime').value.trim();
+	const CV = document.getElementById('karijera_CV').value.trim();
+	const uspehPoruka = document.getElementById('prijava_poslata');
+
+	const imePrezimeGreska = document.getElementById('karijera_ime_prezime_greska');
+	const CVGreska = document.getElementById('cv_greska');
+
+	const imePrezimeJeValidno = ime && prezime && validirajImePrezime(`${ime} ${prezime}`);
+	if (!imePrezimeJeValidno) {
+		imePrezimeGreska.classList.remove('h__hidden');
+	} else if (!imePrezimeGreska.classList.contains('h__hidden')) {
+		imePrezimeGreska.classList.add('h__hidden');
+	}
+	if (!CV) {
+		CVGreska.classList.remove('h__hidden');
+	} else if (!CVGreska.classList.contains('h__hidden')) {
+		CVGreska.classList.add('h__hidden');
+	}
+
+	if (imePrezimeJeValidno && CV) {
+		uspehPoruka.classList.remove('h__hidden');
+		forma.reset();
+	} else {
+		event.preventDefault();
+		if (!uspehPoruka.classList.contains('h__hidden')) {
+			uspehPoruka.classList.add('h__hidden');
 		}
 	}
 }

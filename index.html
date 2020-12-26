@@ -19,6 +19,13 @@
 		rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="styles.css">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet" />
+	<style>
+		#map {
+			margin: 1rem 0;
+		}
+	</style>
 </head>
 
 <body>
@@ -244,6 +251,7 @@
 				<button type="submit" class="btn h__mt--small" id="posalji_poruku">Pošalji</button>
 				<p class="h__hidden uspeh" id="broj_telefona_greska">Poruka je poslata</p>
 			</form>
+			<div id="map" style="width: 400px; height: 300px;"></div>
 			<hr>
 			<p>Pretplatite se na naš newsletter i budite u toku sa našim popustima i objavama</p>
 			<form class="h__flex--column">
@@ -291,7 +299,20 @@
 			</li>
 		</ul>
 	</footer>
-	<script type="application/javascript" src="index.js" />
+
+	<script type="application/javascript" src="index.js"></script>
+	<script>
+		mapboxgl.accessToken = 'pk.eyJ1IjoicHVyaXRhbmljIiwiYSI6ImNqaWdkZGEzeTE2ZHAzcXF5ZDM4a21hbnYifQ.YU7QsoTYmoxSs60ksXg7Fg';
+		var map = new mapboxgl.Map({
+			container: 'map', // container id
+			style: 'mapbox://styles/mapbox/streets-v11', // style URL
+			center: [20.483271, 44.809249], // starting position [lng, lat]
+			zoom: 13 // starting zoom
+		});
+		var marker = new mapboxgl.Marker()
+			.setLngLat([20.483271, 44.809249])
+			.addTo(map);
+	</script>
 </body>
 
 </html>

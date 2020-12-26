@@ -22,7 +22,7 @@ karijeraBtn.addEventListener('click', validirajPodatke);
 
 /*********  Kalkulator aranžmana  **********/
 /**
- * Nalazi elemente potrebne za izračunavanje aranžmana, vrši kalkulaciju, i zatim prikazuje rezultat
+ * @description Nalazi elemente potrebne za izračunavanje aranžmana, vrši kalkulaciju, i zatim prikazuje rezultat
  * @param {DOMEvent} event
  */
 function izracunajAranzman(event) {
@@ -45,7 +45,7 @@ function izracunajAranzman(event) {
 	prikazCene.textContent = ukupnaCena + ' dinara';
 }
 /**
- * Nalazi prosečnu cenu prosledjene destinacije
+ * @description Nalazi prosečnu cenu prosledjene destinacije
  * @param {String} destinacija
  * @returns {Object{osnovnaCena: Int, danPoOsobi: Int}}
  */
@@ -68,6 +68,11 @@ function nadjiCenuDestinacije(destinacija) {
 	}
 }
 
+/*********  Img mouseover handleri  **********/
+/**
+ * @description Skalira sliku, povećavajući joj visinu i širinu za 5px
+ * @param {DOMEvent} event
+ */
 function skalirajSliku(event) {
 	const target = event.target;
 	if (target) {
@@ -77,7 +82,10 @@ function skalirajSliku(event) {
 		target.style.width = currWidth + 5 + 'px';
 	}
 }
-
+/**
+ * @description Deskalira sliku, smanjujući joj visinu i širinu za 5px
+ * @param {DOMEvent} event
+ */
 function deskalirajSliku(event) {
 	const target = event.target;
 	if (target) {
@@ -87,7 +95,30 @@ function deskalirajSliku(event) {
 		target.style.width = currWidth - 5 + 'px';
 	}
 }
+function prikaziInfoTure(event) {
+	const target = event.target;
+	if (target) {
+		const span = target.getElementsByTagName('span')[0];
+		if (span) {
+			span.style.opacity = 1;
+		}
+	}
+}
+function sakrijInfoTure(event) {
+	const target = event.target;
+	if (target) {
+		const span = target.getElementsByTagName('span')[0];
+		if (span) {
+			span.style.opacity = 0;
+		}
+	}
+}
 
+/*********  Form validacija  **********/
+/**
+ * @description Validira polja iz kontakt forme, u u zavisnosti od rezultata prikazuje greške ili poruku da validacija uspešna
+ * @param {DOMEvent} event
+ */
 function validirajKontaktPoruku(event) {
 	const kontaktForma = document.getElementById('kontakt_forma');
 	const naslovPoruke = document.getElementById('naslov').value.trim();
@@ -144,10 +175,10 @@ function validirajKontaktPoruku(event) {
 	}
 }
 /**
- * Validira ime i prezime, tako što proverava da li je priloženi string validno ime i prezime
+ * @description Validira ime i prezime, tako što proverava da li je priloženi string validno ime i prezime
  * Ime i prezime nisu validni ako sadrže numeričke karaktere
  * Ime i prezime nisu validni ako su kraći ili duži od dve reči
- * @param {*} imePrezime
+ * @param {String} imePrezime
  * @returns {Boolean}
  */
 function validirajImePrezime(imePrezime) {
@@ -159,7 +190,7 @@ function validirajImePrezime(imePrezime) {
 	return true;
 }
 /**
- * Validira poruku tako što proverava da li je priloženi string kraći od 10 ili duži od 350 karaktera
+ * @description Validira poruku tako što proverava da li je priloženi string kraći od 10 ili duži od 350 karaktera
  * @param {String} poruka
  * @returns {Boolean}
  */
@@ -168,7 +199,7 @@ function validirajPoruku(poruka) {
 	return true;
 }
 /**
- * Validira naslov tako što proverava da li je priloženi string kraći od 5 ili duži od 30 karaktera
+ * @description Validira naslov tako što proverava da li je priloženi string kraći od 5 ili duži od 30 karaktera
  * @param {String} naslov
  * @returns {Boolean}
  */
@@ -177,7 +208,7 @@ function validirajNaslov(naslov) {
 	return true;
 }
 /**
- * Validira broj telefona
+ * @description Validira broj telefona
  * + i - karakteri su opcionalni, bitno je da broj ima 10 cifara
  * @param {String} telefon
  * @returns {Boolean}
@@ -186,7 +217,7 @@ function validirajKontaktTelefon(telefon) {
 	return /\+?[0-9]{3}-?[0-9]{3}-?[0-9]{4}/.test(telefon);
 }
 /**
- * Proverava da li priloženi string sadrži numeričke karaktere
+ * @description Proverava da li priloženi string sadrži numeričke karaktere
  * @see https://stackoverflow.com/a/28813213/7453363
  * @param {String}
  * @returns {Boolean}
@@ -194,25 +225,10 @@ function validirajKontaktTelefon(telefon) {
 function hasNumber(string) {
 	return /\d/.test(string);
 }
-
-function prikaziInfoTure(event) {
-	const target = event.target;
-	if (target) {
-		const span = target.getElementsByTagName('span')[0];
-		if (span) {
-			span.style.opacity = 1;
-		}
-	}
-}
-function sakrijInfoTure(event) {
-	const target = event.target;
-	if (target) {
-		const span = target.getElementsByTagName('span')[0];
-		if (span) {
-			span.style.opacity = 0;
-		}
-	}
-}
+/**
+ * @description Validira polja iz karijera forme, u u zavisnosti od rezultata prikazuje greške ili poruku da validacija uspešna
+ * @param {DOMEvent} event
+ */
 function validirajPodatke(event) {
 	const forma = document.getElementById('karijera_forma');
 	const ime = document.getElementById('karijera_ime').value.trim();

@@ -336,10 +336,7 @@ section p {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
 }
 .grid li {
@@ -351,35 +348,39 @@ section p {
 	background-size: cover;
 	background-position: center;
 }
+.grid li span {
+	width: 100%;
+	padding: 1rem 2rem;
+	display: inline-block;
+	background: rgb(3, 1, 50);
+	background: linear-gradient(0deg, rgba(251, 251, 251, 0) 0%, rgba(3, 1, 50, 0.7) 0%);
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.3rem;
+}
 .grid .small {
-	-ms-flex-preferred-size: 30%;
 	flex-basis: 30%;
 }
 @media only screen and (max-width: 1100px) {
 	.grid .small {
-		-ms-flex-preferred-size: 50%;
 		flex-basis: 50%;
 	}
 }
 @media only screen and (max-width: 800px) {
 	.grid .small {
-		-ms-flex-preferred-size: 100%;
 		flex-basis: 100%;
 	}
 }
 .grid .large {
-	-ms-flex-preferred-size: 70%;
 	flex-basis: 70%;
 }
 @media only screen and (max-width: 1100px) {
 	.grid .large {
-		-ms-flex-preferred-size: 50%;
 		flex-basis: 50%;
 	}
 }
 @media only screen and (max-width: 800px) {
 	.grid .large {
-		-ms-flex-preferred-size: 100%;
 		flex-basis: 100%;
 	}
 }
@@ -492,7 +493,7 @@ header li {
 	background-size: cover;
 	z-index: -1;
 	background-color: #80a3db;
-	background-image: url('./images/summer_beach.jpg');
+	background-image: url('./images/summer_beach.webp');
 }
 
 .hero__bg-gradient {
